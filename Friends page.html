@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Friends Page</title>
+  <link rel="stylesheet" href="Chats box.html">
+  <link rel="stylesheet" href="Social-Media .html">
+  <script src="darkmode.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="social-media.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f0f2f5;
+    }
+    header {
+      background: #1877f2;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 1rem;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
+    .friend {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0.5rem 0;
+    }
+    .friend img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .friend-info {
+      display: flex;
+      align-items: center;
+    }
+    button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn-accept { background: #1877f2; color: white; }
+    .btn-decline { background: #e4e6eb; }
+
+    .dark-theme{
+      --body-color: #333333;
+    --nav-color: #333333;
+    --bg-color:#333333;
+}
+
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --card: #f5f5f5;
+  --link: #1877f2;
+}
+
+body.dark-mode {
+  --bg: #121212;
+  --text: #f5f5f5;
+  --card: #333333;
+  --link: #4da6ff;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+.card, .settings-page, .setting-menu, .mobile-menu {
+  background: var(--card);
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+:root {
+  
+  --bg:#f5f5f5;
+  --text: #111111;
+  --card: #f5f5f5;
+  --link: #1877f2;
+}
+
+body.dark-mode {
+  --bg: #333333;
+  --text: #f5f5f5;
+  --card: #333333;
+  --link: #4da6ff;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+  </style>
+</head>
+<body>
+
+  
+  <a href="Home page.html"></a>
+     <a href="Group.html"></a>
+    <a href="Notification.html"></a>
+     <a href="Store.html"></a>
+        <a href="menu.html"></a>
+        <a href="Messager.html"></a>
+  
+
+  <script src="app.js"></script>
+  <script src="friends.js"></script>
+
+  <header>Friends</header>
+
+  <div class="container">
+    <!-- Left: Navigation -->
+    <div>
+      <div class="card">
+        <h3>Menu</h3>
+        <p><a href="#">All Friends</a></p>
+        <p><a href="#">Friend Requests</a></p>
+        <p><a href="#">Suggestions</a></p>
+      </div>
+    </div>
+
+    <!-- Center: Friends List -->
+    <div>
+      <div class="card">
+        <h3>Friend Requests</h3>
+        <div class="friend">
+          <div class="friend-info">
+            <img src="https://via.placeholder.com/40" alt="User">
+            <span>Jane Smith</span>
+          </div>
+          <div>
+            <button class="btn-accept">Accept</button>
+            <button class="btn-decline">Decline</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Your Friends</h3>
+        <div class="friend">
+          <div class="friend-info">
+            <img src="https://via.placeholder.com/40" alt="User">
+            <span>Joshua Adekoya</span>
+          </div>
+          <button class="btn-decline">Unfriend</button>
+        </div>
+        <div class="friend">
+          <div class="friend-info">
+            <img src="https://via.placeholder.com/40" alt="User">
+            <span>Mike Johnson</span>
+          </div>
+          <button class="btn-decline">Unfriend</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Suggestions -->
+    <div>
+      <div class="card">
+        <h3>People You May Know</h3>
+        <div class="friend">
+          <div class="friend-info">
+            <img src="https://via.placeholder.com/40" alt="User">
+            <span>User</span>
+          </div>
+          <button class="btn-accept">Add Friend</button>
+        </div>
+        <div class="friend">
+          <div class="friend-info">
+            <img src="https://via.placeholder.com/40" alt="User">
+            <span>Chris Evans</span>
+          </div>
+          <button class="btn-accept">Add Friend</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Handle accept/decline
+    document.querySelectorAll(".btn-accept").forEach(btn => {
+      btn.addEventListener("click", () => {
+        alert("Friend request accepted!");
+      });
+    });
+    document.querySelectorAll(".btn-decline").forEach(btn => {
+      btn.addEventListener("click", () => {
+        alert("Action completed.");
+      });
+    });
+
+    // Sample data
+    let groups = [
+      { id: 1, name: "", img: "https://via.placeholder.com/40x40", joined: true },
+      { id: 2, name: "", img: "https://via.placeholder.com/40x40", joined: false },
+      { id: 3, name: "", img: "https://via.placeholder.com/40x40", joined: false },
+      { id: 4, name: "",img:"https://via.placeholder.com/40x40",joined:true},
+      { id: 5, name: "",img:"https://via.placehoder.com/40x40", joined:true},
+      { id: 6, name: "",img:"https://via.placehoder.com/40x40", joined:false},
+
+    ];
+    let posts = [
+      { groupId: 1, author: "user", content: "Welcome to Your  group! 🙌" },
+    ];
+
+    function renderGroups() {
+      const yourGroups = document.getElementById("yourGroups");
+      const discoverGroups = document.getElementById("discoverGroups");
+      yourGroups.innerHTML = "";
+      discoverGroups.innerHTML = "";
+
+      groups.forEach(g => {
+        const html = `
+          <div class="group">
+            <img src="${g.img}">
+            <span>${g.name}</span>
+            ${g.joined ? "" : `<button onclick="joinGroup(${g.id})">Join</button>`}
+          </div>
+        `;
+        if (g.joined) {
+          yourGroups.innerHTML += html;
+        } else {
+          discoverGroups.innerHTML += html;
+        }
+      });
+    }
+
+    function joinGroup(id) {
+      const group = groups.find(g => g.id === id);
+      if (group) {
+        group.joined = true;
+        alert("You joined " + group.name);
+        renderGroups();
+      }
+    }
+
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

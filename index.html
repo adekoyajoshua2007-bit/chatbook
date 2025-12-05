@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="5wN2GwBoJ9GH96RK8UGpmXT-2FQjkjbak-mfILJieR8"/>
+  <meta charset="UTF-8">
+  <title>Chatbook</title>
+  <link rel="stylesheet" href="chat.bash">
+  <link rel="stylesheet" href="chatbook.xml">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+
+    /* Navigation */
+    nav { position: fixed; top: 0; left: 0; width: 100%; background: #333; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
+    nav h1 { color: #1876f2; margin: 0; font-size: 22px; }
+    nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+    nav ul li { margin: 0 15px; }
+    nav ul li a { color: #fff; text-decoration: none; font-size: 16px; transition: 0.3s; }
+    nav ul li a.active, nav ul li a:hover { color: #1876f2; }
+
+    header { background: url('https://via.placeholder.com/1600x600') no-repeat center/cover; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; text-align: center; padding: 0 20px; }
+    header h1 { font-size: 60px; margin: 0; animation: fadeUp 1s ease-out; }
+    header p { font-size: 20px; margin: 15px 0; animation: fadeUp 1.5s ease-out; }
+    header button { padding: 12px 25px; background: #1876f2; color: #fff; border: none; font-size: 16px; cursor: pointer; border-radius: 5px; animation: fadeUp 2s ease-out; }
+
+    section { padding: 80px 80px; opacity: 0; transform: translateY(50px); transition: opacity 1s ease-out, transform 1s ease-out; }
+    section.show { opacity: 1; transform: translateY(0); }
+    h2 { text-align: center; margin-bottom: 40px; }
+
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .about img { width: 100%; border-radius: 10px; }
+
+    .cards { display: flex; gap: 20px; margin-top: 40px; }
+    .card { background: #f9f9f9; padding: 20px; border-radius: 10px; flex: 1; text-align: center; }
+    .card h3 { margin-bottom: 10px; color: #1876f2; }
+
+    .services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+    .services div { padding: 20px; background: #f9f9f9; border-radius: 10px; }
+
+    .cta { background: #1876f2; color: #fff; text-align: center; padding: 60px 20px; border-radius: 10px; }
+    .cta button { padding: 12px 25px; margin-top: 20px; background: #fff; color: #1876f2; border: none; font-size: 16px; cursor: pointer; border-radius: 5px; }
+
+    .pricing { display: flex; gap: 20px; justify-content: center; }
+    .plan { background: #f9f9f9; padding: 20px; border-radius: 10px; width: 200px; text-align: center; }
+    .plan h3 { margin: 0; background: #333; color: #fff; padding: 10px; border-radius: 5px 5px 0 0; }
+    .plan h2 { color:#1876f2 ; margin: 20px 0; }
+
+    footer { text-align: center; padding: 20px; background: #333; color: #fff; margin-top: 40px; }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media(max-width: 900px) {
+      nav { flex-direction: column; }
+      nav ul { flex-wrap: wrap; justify-content: center; }
+      .about { grid-template-columns: 1fr; }
+      .services { grid-template-columns: repeat(2, 1fr); }
+      .cards { flex-direction: column; }
+      .pricing { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+
+  <nav>
+  <h1>Chatbook</h1>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul id="navLinks">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+  <!-- Hero Section -->
+  <header id="home">
+    <img src="images/">
+    <h1>Web Development</h1>
+    <p>We build modern and professional websites for businesses and social-media Activity.</p>
+     <a href="Registerpage.html">
+         <button>Get Started</button>
+       </a>
+  </header>
+
+  <!-- About Us -->
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="about">
+      <img src="https://via.placeholder.com/500x350" alt="About us">
+      <div>
+        <h3>Welcome to Our site</h3>
+        <p>Founded in 2025, chatbook began with a simple Mission:to create a social and E-commerce online presence where people can come and discover new product,buy stuff and connect with people worldwide. what Started as "a small idea in college", "and now it's a website people love to signup for", it's has grown into becoming, what changes people's socialmedia experience and also help people to engage themselves in acquring new skills and also  allow people to discover new things worldwide.</p>
+        <p></p>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Our Mission</h3>
+        <p>Deliver high-quality services and also help people acqure skills and experience more social and E-commerce presence online</p>
+      </div>
+      <div class="card">
+        <h3>Our Vision</h3>
+        <p>Empower organizations with cutting-edge digital tools.</p>
+      </div>
+      <div class="card">
+        <h3>Our Objective</h3>
+        <p>Provide affordable and professional web services worldwide.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div>
+        <h3>Web Design</h3>
+        <p>Modern, responsive, and creative website designs.</p>
+      </div>
+      <div>
+        <h3>Web Development</h3>
+        <p>Functional and scalable web applications.</p>
+      </div>
+      <div>
+        <h3>Frontend Development</h3>
+        <p>We Make sure your websites not only look professional but also Provides a smooth experience that keeps vistors engaged and encourges them to become customers.</p>
+      </div>
+      <div>
+        <h3>SEO Optimization</h3>
+        <p>Boost your online presence with SEO strategies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta">
+    <h2>Ready to Aquire skills ?</h2>
+    <p>Contact us today and let’s build something amazing together.</p>
+    <button>Contact Us</button>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <h2>Our Pricing</h2>
+    <div class="pricing">
+      <div class="plan">
+        <h3>Silver</h3>
+        <h2>$9.99</h2>
+        <p>Basic features for startups</p>
+      </div>
+      <div class="plan">
+        <h3>Gold</h3>
+        <h2>$19.99</h2>
+        <p>Best value for small businesses</p>
+      </div>
+      <div class="plan">
+        <h3>Platinum</h3>
+        <h2>$29.99</h2>
+        <p>Advanced features for enterprises</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align:center;">Email: info@Chatbook.com.ng | Phone: +234 9014388604</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Chatbook. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Scroll Active
+    const sections = document.querySelectorAll("section, header");
+    const navLinks = document.querySelectorAll("nav ul li a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(sec => {
+        const sectionTop = sec.offsetTop - 100;
+        if (scrollY >= sectionTop) {
+          current = sec.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current)) {
+          link.classList.add("active");
+        }
+      });
+    });
+
+    // Section Animation on Scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll("section").forEach(sec => {
+      observer.observe(sec);
+    });
+  </script>
+
+</body>
+</html>

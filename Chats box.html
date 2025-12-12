@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messenger</title>
+    <link rel="stylesheet" href="Chats page.html">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="social-media.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        *{
+            background:#fff;
+            
+        }
+
+    
+
+        .chat-container {
+            max-width: 2000px;
+            height: 100vh;
+            background:#fff;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+        }
+        .header {
+        display: flex;
+       justify-content: space-between;
+       align-items: center;
+      margin-bottom: 25px;
+      
+}
+ .back-arrow {
+            font-size: 24px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .username {
+            font-size: 18px;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .dropdown-arrow {
+            font-size: 14px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .compose-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .search-bar {
+            margin: 10px 20px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            background:#fff;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 45px;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: #8e8e8e;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8e8e8e;
+            font-size: 18px;
+        }
+
+        .stories-section {
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            border-bottom: 1px solid #262626;
+        }
+
+        .story-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .story-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .story-avatar.your-note {
+            background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+            padding: 3px;
+        }
+
+        .story-avatar.your-note::after {
+            content: '';
+            width: 54px;
+            height: 54px;
+            background: #000;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .story-avatar.regular {
+            background: #5851db;
+            border-radius: 50%;
+            height: 54px;
+            width: 54px;
+            position: absolute;
+            content: '';
+        }
+
+        .story-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+        }
+
+        .story-label {
+            font-size: 12px;
+            color: white;
+            text-align: center;
+            max-width: 70px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .note-bubble {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            background: #262626;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 11px;
+            color: white;
+            z-index: 3;
+        }
+
+        .messages-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 20px 10px;
+            align-items: center;
+        }
+
+        .messages-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .requests-link {
+            color: #0095f6;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .messages-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0 20px;
+        }
+
+        .message-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .message-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .message-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #262626;
+        }
+
+        .message-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .message-name {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .message-preview {
+            font-size: 14px;
+            color: #8e8e8e;
+        }
+
+        .message-time {
+            font-size: 14px;
+            color: #8e8e8e;
+        }
+
+        .message-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .online-dot {
+            width: 12px;
+            height: 12px;
+            background: #00d4aa;
+            border-radius: 50%;
+            border: 2px solid #000;
+        }
+
+        .unread-dot {
+            width: 8px;
+            height: 8px;
+            background: #0095f6;
+            border-radius: 50%;
+        }
+
+        .find-friends {
+            padding: 20px;
+            border-top: 1px solid #262626;
+            color: black;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .avatar-placeholder {
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* Scrollbar styling */
+        .messages-list::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .messages-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .messages-list::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Header -->
+        <div class="header">
+          <span class="back-arrow"><a href="Social-Media .html">←</span></a> 
+            <span class="username">Joshua_Adekoya</span>
+            <span class="dropdown-arrow">▼</span>
+            <span class="compose-icon">✏️</span>
+        </div>
+
+        <!-- Messages Header -->
+        <div class="messages-header">
+            <h2 class="messages-title">Messages</h2>
+            <a href="#" class="requests-link">Requests</a>
+        </div>
+
+        <!-- Messages List -->
+        <div class="messages-list">
+            <div class="message-item">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHZpZXdCb3g9IjAgMCA1NiA1NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjgiIGN5PSIyOCIgcj0iMjgiIGZpbGw9IiNmZjZkMDAiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj4KICA8cGF0aCBkPSJNMTIgMTJjMi4yMSAwIDQtMS43OSA0LTRzLTEuNzktNC00LTQtNCA1LjMgMTMuMTZNNSA0LjMyQzMuNzYgNS43NyAzIDcuNTQgMyA5LjVjMCA1Ljc0IDQuMjYgMTAuNSA5LjUgMTAuNXM5LjUtNC43NiA5LjUtMTAuNWMwLTUuNzQtNC4yNi0xMC41LTkuNS0xMC41eiIgZmlsbD0iIzMzMyIvPgo8L3N2Zz4KPC9zdmc+" alt="Sarah" class="message-avatar">
+                <div class="message-content">
+                    <div class="message-name">JoshuaAdekoya</div>
+                    <a href="Chats page.html">.</a>
+                     <div class="message-preview">Hey! How's your day going? 😊 • 2h</div>
+                </div>
+                <div class="message-status">
+                    <div class="unread-dot"></div>
+                </div>
+            </div>
+
+            <div class="message-item">
+                <div class="message-avatar avatar-placeholder">M</div>
+                <div class="message-content">
+                    <div class="message-name">user</div>
+                    <a href="chat.html">.</a>
+                    <div class="message-preview"></div>
+                </div>
+                <div class="message-status">
+                    <div class="message-time">5h</div>
+                </div>
+            </div>
+
+        <!-- Find Friends Section -->
+        <div class="find-friends" >
+            <a href="Friends page.html">.</a>
+            Find friends to follow and message
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
